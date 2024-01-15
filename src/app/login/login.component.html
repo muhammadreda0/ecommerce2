@@ -1,0 +1,22 @@
+<div class="container  text-center container mt-4 w-75 shadow-lg rounded-2">
+<form #myForm="ngForm" (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" class="form-control" />
+      <div *ngIf="myForm.controls['email'].touched && myForm.controls['email'].invalid" class="text-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" minlength="8" id="password" name="password" [(ngModel)]="user.passwrd" required class="form-control" />
+      <div *ngIf="myForm.controls['password'].touched && myForm.controls['password'].invalid" class="text-danger">
+        Password is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary w-25 mb-3">Submit</button>
+
+  </form>
+</div>

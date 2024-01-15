@@ -1,0 +1,81 @@
+
+<div class="card  h-100 ">
+  <div class="product-container" style="background-image: url({{product.images[0]}}); cursor: pointer;" (click)="details(product.id)">
+    @if (product.stock > 0) {
+      <p class="stock">In Stock</p>
+    }@else {
+      <p class="out-stock">Out Stock</p>
+    }
+  </div>
+
+  <div class="card-body ">
+    <div class="container p-0">
+      <div class="row">
+        <div class="row font-weight-bold h6">
+     
+          <div class="col-9 " (click)="details(product.id)" style="cursor: pointer;">{{product.title}}:</div>
+          <div class="col-3 p-0 text-right " (click)="details(product.id)" style="cursor: pointer;">( {{product.price}} $)</div>
+        </div>
+        <div class="col"  (click)="details(product.id)" style="cursor: pointer;">
+          {{product.description}}
+        </div>
+      </div>
+      <div class="row ">
+        <p class="rateing">
+
+        @if (product.rating<=0) {
+            <i class="bi bi-star smaller-icon"></i>
+            <i class="bi bi-star smaller-icon"></i>
+            <i class="bi bi-star smaller-icon"></i>
+            <i class="bi bi-star smaller-icon"></i>
+            <i class="bi bi-star smaller-icon"></i>
+
+
+        }@else if(product.rating>1 && product.rating<=2){
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+
+        }
+        @else if(product.rating>2 && product.rating<=3){
+          <i class="bi bi-star-fill smaller-icon" style="color:gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+
+        }
+        @else if(product.rating>3 && product.rating<4){
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star smaller-icon"></i>
+          <i class="bi bi-star smaller-icon"></i>
+
+        }
+        @else if(product.rating>=4 && product.rating<=(4.5)){
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star smaller-icon"></i>
+
+        }
+        @else {
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+          <i class="bi bi-star-fill smaller-icon" style="color: gold;"></i>
+
+        }
+      </p><span>({{product.rating}})</span>
+      <button class="btn btn-success  rounded-pill my-0 " (click)="AddtoCart(product)">Add to Cart</button>
+
+
+    </div>
+    </div>
+  </div>
+</div>
